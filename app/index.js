@@ -1,10 +1,7 @@
-const express = require('express');
+server = require('./src/server');
 
-const app = express()
+const PORT = 3000;
 
-app.get('/', (req,res) => {
-  console.log('request has been received');
-  res.send({ message: 'response'})
-})
-
-app.listen(3000, () => console.log('Server is up and running on port 3000'));
+server.listen(PORT, () => {
+  console.log(`Server is up and running on port ${PORT}`)
+});
