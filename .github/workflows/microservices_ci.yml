@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Microservices CI
 
 on:
   push:
@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker-compose up --build
+      run: docker-compose -f Application.test.yml up --build -d
