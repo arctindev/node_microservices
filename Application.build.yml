@@ -13,3 +13,12 @@ services:
             dockerfile: Dockerfile.build
         ports:
             - "80:80"
+    postgres:
+        build:
+            context: ./database
+            dockerfile: Dockerfile.build
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+        ports: 
+            - '5432:5432'

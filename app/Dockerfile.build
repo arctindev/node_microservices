@@ -9,7 +9,6 @@ WORKDIR /home/app
 COPY package.json /home/app/
 RUN npm install
 
-# Install node packages and precompile assets
 COPY . /home/app
 
 EXPOSE 3000
