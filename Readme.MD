@@ -1,5 +1,5 @@
 To run
 
 ```bash
-docker-compose up --build
+docker-compose -f Application.build.yml up --build
 ```

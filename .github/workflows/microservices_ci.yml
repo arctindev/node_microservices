@@ -1,0 +1,29 @@
+name: Microservices CI
+
+on:
+  push:
+    branches: [ development ]
+  pull_request:
+    branches: [ development ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build test Docker image
+      run: docker-compose -f Application.build.yml up --build -d
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build test Docker image
+      run: cd app && docker build -t test-image . -f Dockerfile.test
+    - name: Run unit tests
+      run: docker run test-image

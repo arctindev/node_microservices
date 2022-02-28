@@ -1,0 +1,8 @@
+FROM postgres:14.2-alpine3.15
+
+# For container debug purposes
+# RUN apk add bash vim
+
+USER postgres
+
+EXPOSE $postgres_port
