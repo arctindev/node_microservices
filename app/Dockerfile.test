@@ -1,0 +1,15 @@
+FROM node:17-alpine3.15
+
+# For container debug purposes
+RUN apk add bash
+
+RUN mkdir /home/app
+
+WORKDIR /home/app
+COPY package.json /home/app/
+RUN npm install
+
+COPY . /home/app
+
+EXPOSE 3000
+CMD ["npm","run","test"]
