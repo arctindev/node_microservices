@@ -1,0 +1,5 @@
+FROM dpage/pgadmin4
+
+USER root
+
+EXPOSE $postgres_port

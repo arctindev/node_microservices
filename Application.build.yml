@@ -9,13 +9,23 @@ services:
             - "80:80"
     postgres:
         build:
-            context: ./database
+            context: ./database/postgresql
             dockerfile: Dockerfile.build
         environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
         ports: 
             - '5432:5432'
+    pgadmin4:
+        build:
+            context: ./database/pgadmin4
+            dockerfile: Dockerfile.build
+        environment:
+            PGADMIN_DEFAULT_EMAIL: name@example.com
+            PGADMIN_DEFAULT_PASSWORD: admin
+            PGADMIN_LISTEN_PORT: 5050
+        ports: 
+            - '5050:5050'
     nodeserver:
         build:
             context: ./app
