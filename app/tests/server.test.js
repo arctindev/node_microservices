@@ -6,7 +6,7 @@ describe("Test the root path", () => {
     return request(server)
       .get("/")
       .then(response => {
-        expect(response.statusCode).toBe(400);
+        expect(response.statusCode).toBe(200);
       });
   });
 });
